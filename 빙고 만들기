@@ -1,0 +1,43 @@
+package javastudy260107;
+
+import java.util.Arrays;
+
+public class BingoGame {
+	
+	public static void main(String[] args) {
+		
+		// 1차원 배열 25 크기
+		// 배열에 무작위 숫자 저장 (1 ~ 100)
+		
+		int[] bingo = new int [25];
+		
+		// 랜덤 숫자 생성
+		for(int i = 0; i < bingo.length; i++){
+			bingo[i] = (int)Math.floor(Math.random()*100)+1;
+				
+				//인덱스 0부터 i-1까지 비교 (인덱스 5(i)일 경우 인덱스 4(i-1)까지 비교)
+				//for(int k = 0; k <= i-1; k++){
+				for(int k = 0; k < i; k++){
+					if(bingo[i] == bingo[k]) {
+						i--;
+						break;
+					}
+				}
+			}
+		
+		// 빙고판 모양으로 출력
+		for(int i = 0; i < 5; i++) {
+			for(int k = 0; k < 5; k++) {
+				System.out.printf(" %3d ",bingo[i*5+k] );
+			}
+			System.out.println();
+		}
+		
+		
+		// 배열에 있는 데이터 확인용
+		//System.out.println( Arrays.toString(bingo));
+		
+		
+		
+	}
+}
